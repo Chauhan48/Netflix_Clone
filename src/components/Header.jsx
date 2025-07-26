@@ -1,9 +1,84 @@
-import React from 'react'
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react'
+import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice';
+import { LOGO, PROFILE_PICTURE } from '../utils/constants';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  const user = useSelector((store) => store.user);
+
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+    }).catch((error) => {
+      navigate('/error');
+    });
+  }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        navigate('/browse');
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate('/')
+      }
+    });
+
+    // unsubscribe when component unmounts
+    return () => unsubscribe();
+  }, [])
+
   return (
-    <div className="absolute top-0 left-0 w-full flex items-center justify-between px-8 py-4 bg-gradient-to-b from-black to-transparent z-10">
-      <img src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2025-07-24/consent/87b6a5c0-0104-4e96-a291-092c11350111/019808e2-d1e7-7c0f-ad43-c485b7d9a221/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="Netflix Logo" className="w-32 h-10" />
+    <div className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black to-transparent px-8 py-4 flex items-center justify-between">
+      <img
+        src={LOGO}
+        alt="Netflix Logo"
+        className="w-28 md:w-32"
+      />
+
+      {user && <div className="hidden md:flex gap-6 text-white text-sm font-medium">
+        <a href="#" className="hover:text-gray-400">Home</a>
+        <a href="#" className="hover:text-gray-400">TV Shows</a>
+        <a href="#" className="hover:text-gray-400">Movies</a>
+        <a href="#" className="hover:text-gray-400">New & Popular</a>
+        <a href="#" className="hover:text-gray-400">My List</a>
+      </div>}
+
+      {user && <div className="relative">
+        <img
+          src={PROFILE_PICTURE}
+          alt="Profile"
+          className="h-8 w-8 rounded cursor-pointer object-cover"
+          onClick={toggleDropdown}
+        />
+
+        {isDropdownOpen && (
+          <div className="absolute right-0 mt-2 w-40 bg-black/75 border border-gray-700 rounded shadow-lg text-white text-sm">
+            <button
+              className="block px-4 py-2 hover:bg-gray-800"
+            >
+              Manage Profile
+            </button>
+            <button
+              onClick={handleSignOut}
+              className="block px-4 py-2 hover:bg-gray-800"
+            >
+              Sign Out
+            </button>
+          </div>
+        )}
+      </div>}
     </div>
   )
 }
