@@ -18,17 +18,15 @@ const VideoBackground = ({ movieId }) => {
     }, [])
 
     return (
-        <div className="fixed top-0 left-0 w-full h-screen overflow-hidden z-0">
+        <div className="overflow-hidden h-screen">
             <iframe
-                className="w-full h-full absolute top-0 left-0"
+                className="w-full h-[140%] transform -translate-y-20"
                 src={`https://www.youtube.com/embed/${trailerId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=${trailerId}&playsinline=1&enablejsapi=1`}
                 title="Netflix Trailer"
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
             ></iframe>
-
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black via-transparent to-black opacity-50 z-10" />
         </div>
     )
 }
