@@ -20,7 +20,7 @@ const VideoBackground = ({ movieId }) => {
     return (
         <div className="overflow-hidden h-screen">
             <iframe
-                className="w-full h-[140%] transform -translate-y-20"
+                className="w-full h-[140%] transform -translate-y-60"
                 src={`https://www.youtube.com/embed/${trailerId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&loop=1&playlist=${trailerId}&playsinline=1&enablejsapi=1`}
                 title="Netflix Trailer"
                 frameBorder="0"
