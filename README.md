@@ -1,12 +1,51 @@
-# React + Vite
+# Netflix Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based Netflix clone built with Vite, Redux Toolkit, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse movies with different categories (Now Playing, Popular, Trending)
+- Responsive design with Tailwind CSS
+- Redux state management
+- Firebase authentication
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory and add your TMDB API access token:
+   ```
+   VITE_TMDB_API_ACCESS_TOKEN=your_tmdb_api_access_token_here
+   ```
+
+   To get your API access token:
+   - Go to https://www.themoviedb.org/settings/api
+   - Create an account and request an API key
+   - Copy your API access token
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues
+- `npm run format` - Format code with Prettier
+
+## Technologies Used
+
+- React 19
+- Vite
+- Redux Toolkit
+- Tailwind CSS
+- Firebase
+- TMDB API
