@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const VideoTitle = ({ title, overview }) => {
+const VideoTitle = ({title, overview}) => {
   return (
     <div className="absolute top-[30%] left-12 text-white max-w-xl space-y-4 z-20">
       <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">{title}</h1>
@@ -19,6 +20,11 @@ const VideoTitle = ({ title, overview }) => {
       </div>
     </div>
   );
+};
+
+VideoTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
 };
 
 export default VideoTitle;

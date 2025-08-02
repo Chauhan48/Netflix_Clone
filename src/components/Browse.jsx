@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
-import Header from './Header'
-import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
+import React from 'react';
+import Header from './Header';
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
 import usePopularMovies from '../hooks/usePopularMovies';
 
 const Browse = () => {
-
   useNowPlayingMovies();
   usePopularMovies();
 
@@ -16,7 +15,7 @@ const Browse = () => {
       <MainContainer />
       <SecondaryContainer />
     </div>
-  )
-}
+  );
+};
 
-export default Browse
+export default Browse;
