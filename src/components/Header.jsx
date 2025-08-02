@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {addUser, removeUser} from '../utils/userSlice';
 import {LOGO, PROFILE_PICTURE} from '../utils/constants';
+import {toggleSearchView} from '../utils/searchSlice';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -40,13 +41,17 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleSearchClick = () => {
+    dispatch(toggleSearchView());
+  };
+
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black to-transparent px-8 py-4 flex items-center justify-between">
       <img src={LOGO} alt="Netflix Logo" className="w-28 md:w-32" />
 
       {user && (
         <div className="hidden md:flex gap-6 text-white text-sm font-medium">
-          <a href="#" className="hover:text-gray-400">
+          <a href="/browse" className="hover:text-gray-400">
             Home
           </a>
           <a href="#" className="hover:text-gray-400">
@@ -61,6 +66,9 @@ const Header = () => {
           <a href="#" className="hover:text-gray-400">
             My List
           </a>
+          <button className="hover:text-gray-400" onClick={handleSearchClick}>
+            Search🔍
+          </button>
         </div>
       )}
 
