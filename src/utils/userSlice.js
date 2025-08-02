@@ -4,11 +4,10 @@ const userSlice = createSlice({
   name: 'user',
   initialState: null,
   reducers: {
-    addUser: (_state, action) => {
+    addUser: (state, action) => {
       return action.payload;
     },
-    removeUser: (_state, _action) => {
-      // eslint-disable-line no-unused-vars
+    removeUser: () => {
       return null;
     },
   },
