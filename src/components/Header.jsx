@@ -66,9 +66,6 @@ const Header = () => {
             Movies
           </a>
           <a href="#" className="hover:text-gray-400">
-            New & Popular
-          </a>
-          <a href="#" className="hover:text-gray-400">
             My List
           </a>
           <button className="hover:text-gray-400" onClick={handleSearchClick}>

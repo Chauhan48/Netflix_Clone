@@ -32,6 +32,79 @@ A React-based Netflix clone built with Vite, Redux Toolkit, and Tailwind CSS.
    npm run dev
    ```
 
+## CI/CD Pipeline
+
+This project includes a comprehensive CI/CD pipeline using GitHub Actions and Firebase Hosting.
+
+### Workflow Overview
+
+The CI/CD pipeline consists of three main workflows:
+
+1. **Pull Request Checks** (`pr-checks.yml`)
+   - Runs on every pull request
+   - Code quality checks (ESLint, Prettier)
+   - Security audits
+   - Build verification
+
+2. **Main CI/CD Pipeline** (`ci.yml`)
+   - Runs on pushes to main/develop branches
+   - Complete testing and building
+   - Security scanning
+   - Artifact storage
+
+3. **Deployment Pipeline** (`deploy.yml`)
+   - Automatic deployment to staging (develop branch)
+   - Automatic deployment to production (main branch)
+   - Manual deployment triggers
+
+### Deployment Environments
+
+- **Staging**: `develop` branch → Firebase hosting preview channel
+- **Production**: `main` branch → Firebase hosting live channel
+
+### Setup Instructions
+
+#### 1. Firebase Service Account Setup
+
+1. Go to Firebase Console → Project Settings → Service Accounts
+2. Generate a new private key for each environment
+3. Add the JSON content as GitHub secrets:
+   - `FIREBASE_SERVICE_ACCOUNT_STAGING`
+   - `FIREBASE_SERVICE_ACCOUNT_PROD`
+
+#### 2. GitHub Secrets Configuration
+
+Add these secrets in your GitHub repository settings:
+
+```
+FIREBASE_SERVICE_ACCOUNT_STAGING: <staging-service-account-json>
+FIREBASE_SERVICE_ACCOUNT_PROD: <production-service-account-json>
+```
+
+#### 3. Environment Protection Rules
+
+Set up environment protection rules in GitHub:
+- **staging**: Require pull request reviews
+- **production**: Require pull request reviews and status checks
+
+### Manual Deployment
+
+You can trigger manual deployments using GitHub Actions:
+
+1. Go to Actions tab in your repository
+2. Select "Deploy" workflow
+3. Click "Run workflow"
+4. Choose the environment (staging/production)
+
+### Pipeline Features
+
+- ✅ **Automated Testing**: Linting, formatting, and build checks
+- ✅ **Security Scanning**: npm audit for vulnerability detection
+- ✅ **Multi-Environment Deployment**: Staging and production environments
+- ✅ **Artifact Storage**: Build artifacts stored for 7 days
+- ✅ **Manual Triggers**: On-demand deployment capability
+- ✅ **Environment Protection**: Required reviews for production deployments
+
 ## Available Scripts
 
 - `npm run dev` - Start development server
@@ -49,3 +122,4 @@ A React-based Netflix clone built with Vite, Redux Toolkit, and Tailwind CSS.
 - Tailwind CSS
 - Firebase
 - TMDB API
+- GitHub Actions (CI/CD)

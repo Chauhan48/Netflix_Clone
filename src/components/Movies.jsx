@@ -28,7 +28,7 @@ const Movies = () => {
         {movies && (
           <div className="flex flex-wrap justify-center gap-4">
             {movies.map((movie) => (
-              <MovieCard key={movie.id} posterPath={movie.poster_path} />
+              <MovieCard key={movie.id} movie={movie} />
             ))}
           </div>
         )}
