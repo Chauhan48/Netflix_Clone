@@ -62,7 +62,7 @@ const Header = () => {
           <a href="/tvshows" className="hover:text-gray-400">
             TV Shows
           </a>
-          <a href="#" className="hover:text-gray-400">
+          <a href="/movies" className="hover:text-gray-400">
             Movies
           </a>
           <a href="#" className="hover:text-gray-400">
