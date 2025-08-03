@@ -70,7 +70,7 @@ MovieCard.propTypes = {
     poster_path: PropTypes.string,
     backdrop_path: PropTypes.string,
     // add other keys you're using
-  }).isRequired
+  }).isRequired,
 };
 
 export default MovieCard;
