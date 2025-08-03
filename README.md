@@ -52,41 +52,6 @@ The CI/CD pipeline consists of three main workflows:
    - Security scanning
    - Artifact storage
 
-3. **Deployment Pipeline** (`deploy.yml`)
-   - Automatic deployment to staging (develop branch)
-   - Automatic deployment to production (main branch)
-   - Manual deployment triggers
-
-### Deployment Environments
-
-- **Staging**: `develop` branch → Firebase hosting preview channel
-- **Production**: `main` branch → Firebase hosting live channel
-
-### Setup Instructions
-
-#### 1. Firebase Service Account Setup
-
-1. Go to Firebase Console → Project Settings → Service Accounts
-2. Generate a new private key for each environment
-3. Add the JSON content as GitHub secrets:
-   - `FIREBASE_SERVICE_ACCOUNT_STAGING`
-   - `FIREBASE_SERVICE_ACCOUNT_PROD`
-
-#### 2. GitHub Secrets Configuration
-
-Add these secrets in your GitHub repository settings:
-
-```
-FIREBASE_SERVICE_ACCOUNT_STAGING: <staging-service-account-json>
-FIREBASE_SERVICE_ACCOUNT_PROD: <production-service-account-json>
-```
-
-#### 3. Environment Protection Rules
-
-Set up environment protection rules in GitHub:
-- **staging**: Require pull request reviews
-- **production**: Require pull request reviews and status checks
-
 ### Manual Deployment
 
 You can trigger manual deployments using GitHub Actions:
@@ -94,7 +59,6 @@ You can trigger manual deployments using GitHub Actions:
 1. Go to Actions tab in your repository
 2. Select "Deploy" workflow
 3. Click "Run workflow"
-4. Choose the environment (staging/production)
 
 ### Pipeline Features
 
