@@ -1,21 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    vote_count: PropTypes.number,
-    vote_average: PropTypes.number,
-    release_date: PropTypes.string,
-    first_air_date: PropTypes.string,
-    title: PropTypes.string,
-    overview: PropTypes.string,
-    poster_path: PropTypes.string,
-    backdrop_path: PropTypes.string,
-    // add other keys you're using
-  }).isRequired
-};
-
-
 const MovieCard = ({movie}) => {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -72,6 +57,20 @@ const MovieCard = ({movie}) => {
       )}
     </>
   );
+};
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    vote_count: PropTypes.number,
+    vote_average: PropTypes.number,
+    release_date: PropTypes.string,
+    first_air_date: PropTypes.string,
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string,
+    backdrop_path: PropTypes.string,
+    // add other keys you're using
+  }).isRequired,
 };
 
 export default MovieCard;
