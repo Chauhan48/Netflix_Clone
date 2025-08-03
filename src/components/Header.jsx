@@ -1,7 +1,7 @@
 import {onAuthStateChanged, signOut} from 'firebase/auth';
 import React, {useEffect, useState} from 'react';
 import {auth} from '../utils/firebase';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {addUser, removeUser} from '../utils/userSlice';
 import {LOGO, PROFILE_PICTURE} from '../utils/constants';
@@ -24,12 +24,17 @@ const Header = () => {
       });
   };
 
+  const location = useLocation();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const {uid, email, displayName} = user;
         dispatch(addUser({uid: uid, email: email, displayName: displayName}));
-        navigate('/browse');
+
+        if (location.pathname === '/') {
+          navigate('/browse');
+        }
       } else {
         // User is signed out
         dispatch(removeUser());
@@ -54,7 +59,7 @@ const Header = () => {
           <a href="/browse" className="hover:text-gray-400">
             Home
           </a>
-          <a href="#" className="hover:text-gray-400">
+          <a href="/tvshows" className="hover:text-gray-400">
             TV Shows
           </a>
           <a href="#" className="hover:text-gray-400">
