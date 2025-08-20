@@ -1,5 +1,17 @@
 # Netflix Clone
 
+<img width="1918" height="927" alt="Screenshot 2025-08-19 211227" src="https://github.com/user-attachments/assets/3dfa61d2-66c0-4825-8f07-0a18c3142c87" />
+
+
+<img width="1916" height="926" alt="Screenshot 2025-08-19 210917" src="https://github.com/user-attachments/assets/bdff0e05-0a9b-4900-bfb6-925bfe345863" />
+
+
+<img width="1918" height="926" alt="Screenshot 2025-08-19 211019" src="https://github.com/user-attachments/assets/399904b6-5660-4e73-be87-5d94cf315a7b" />
+
+
+<img width="1918" height="931" alt="Screenshot 2025-08-19 211103" src="https://github.com/user-attachments/assets/77934ab7-1ab2-4b91-93a0-5f9bf3f0e6f1" />
+
+
 A React-based Netflix clone built with Vite, Redux Toolkit, and Tailwind CSS.
 
 ## Features
@@ -87,11 +99,3 @@ You can trigger manual deployments using GitHub Actions:
 - Firebase
 - TMDB API
 - GitHub Actions (CI/CD)
-  
-<img width="1918" height="927" alt="Screenshot 2025-08-19 211227" src="https://github.com/user-attachments/assets/3dfa61d2-66c0-4825-8f07-0a18c3142c87" />
-
-<img width="1916" height="926" alt="Screenshot 2025-08-19 210917" src="https://github.com/user-attachments/assets/bdff0e05-0a9b-4900-bfb6-925bfe345863" />
-
-<img width="1918" height="926" alt="Screenshot 2025-08-19 211019" src="https://github.com/user-attachments/assets/399904b6-5660-4e73-be87-5d94cf315a7b" />
-
-<img width="1918" height="931" alt="Screenshot 2025-08-19 211103" src="https://github.com/user-attachments/assets/77934ab7-1ab2-4b91-93a0-5f9bf3f0e6f1" />
