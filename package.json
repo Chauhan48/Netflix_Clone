@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Chauhan48/Netflix_Clone",
+  "homepage": "https://chauhan48.github.io/Netflix_Clone",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,scss,md}\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
