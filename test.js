@@ -1,0 +1,1 @@
+const obj = { name: "Anshit", greet: function() { return () => {console.log(this.name);} } }; obj.greet()();
